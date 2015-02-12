@@ -1,5 +1,5 @@
 module.exports = function(obj, options) {
-    var options = options || {}
+    options = options || {};
     if (typeof obj === 'string') return camelCase(obj, options);
     return walk(obj, options);
 };
@@ -8,7 +8,6 @@ function walk (obj, options) {
     if (options.convert) {
         obj = options.convert(obj);
     }
-    
 
     if (!obj || typeof obj !== 'object') return obj;
     if (isDate(obj) || isRegex(obj)) return obj;
